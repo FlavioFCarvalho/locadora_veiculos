@@ -5,7 +5,7 @@ import java.io.Serializable;
 import javax.inject.Inject;
 
 import com.algaworks.curso.jpa2.dao.FabricanteDAO;
-import com.algaworks.curso.jpa2.model.Fabricante;
+import com.algaworks.curso.jpa2.modelo.Fabricante;
 import com.algaworks.curso.jpa2.util.jpa.Transactional;
 
 public class CadastroFabricanteService implements Serializable {

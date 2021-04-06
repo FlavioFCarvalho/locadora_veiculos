@@ -1,4 +1,4 @@
-package com.algaworks.curso.jpa2.model;
+package com.algaworks.curso.jpa2.modelo;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
