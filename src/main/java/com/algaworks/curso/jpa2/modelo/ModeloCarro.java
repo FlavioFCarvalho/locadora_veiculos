@@ -4,12 +4,14 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Fabricante {
+public class ModeloCarro {
 
 	private Long codigo;
-	private String nome;
+	private String descricao;
+	private Fabricante fabricante;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -20,11 +22,19 @@ public class Fabricante {
 		this.codigo = codigo;
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getDescricao() {
+		return descricao;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+
+	@ManyToOne
+	public Fabricante getFabricante() {
+		return fabricante;
+	}
+	public void setFabricante(Fabricante fabricante) {
+		this.fabricante = fabricante;
 	}
 	
 	@Override
@@ -43,7 +53,7 @@ public class Fabricante {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Fabricante other = (Fabricante) obj;
+		ModeloCarro other = (ModeloCarro) obj;
 		if (codigo == null) {
 			if (other.codigo != null)
 				return false;
@@ -51,5 +61,5 @@ public class Fabricante {
 			return false;
 		return true;
 	}
-
+	
 }
