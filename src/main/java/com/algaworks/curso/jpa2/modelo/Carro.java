@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -71,7 +72,7 @@ public class Carro {
 		this.modelo = modelo;
 	}
 	
-	@ManyToMany
+	@ManyToMany(fetch=FetchType.LAZY)
 	@JoinTable(name="carro_acessorio"
 				, joinColumns=@JoinColumn(name="codigo_carro")
 				, inverseJoinColumns=@JoinColumn(name="codigo_acessorio"))
