@@ -25,6 +25,7 @@ public class Aluguel {
 	private Calendar dataPedido;
 	private Date dataEntrega;
 	private Date dataDevolucao;
+	private Motorista motorista;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -82,6 +83,15 @@ public class Aluguel {
 	}
 	public void setDataDevolucao(Date dataDevolucao) {
 		this.dataDevolucao = dataDevolucao;
+	}
+	
+	@ManyToOne
+	@JoinColumn(name="codigo_motorista")
+	public Motorista getMotorista() {
+		return motorista;
+	}
+	public void setMotorista(Motorista motorista) {
+		this.motorista = motorista;
 	}
 	@Override
 	public int hashCode() {
