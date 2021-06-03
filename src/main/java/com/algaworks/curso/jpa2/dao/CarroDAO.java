@@ -28,7 +28,7 @@ public class CarroDAO implements Serializable {
 
 	@SuppressWarnings("unchecked")
 	public List<Carro> buscarTodos() {
-		return manager.createQuery("from Carro").getResultList();
+		return manager.createNamedQuery("Carro.buscarTodos").getResultList();
 	}
 	
 	@Transactional
@@ -43,8 +43,8 @@ public class CarroDAO implements Serializable {
 	}
 
 	public Carro buscarCarroComAcessorios(Long codigo) {
-		return (Carro) manager.createQuery("select c from Carro c left JOIN fetch c.acessorios a where c.codigo = ?")
-				.setParameter(1, codigo)
+		return manager.createNamedQuery("Carro.buscarCarroComAcessorios", Carro.class)
+				.setParameter("codigo", codigo)
 				.getSingleResult();
 	}
 	
